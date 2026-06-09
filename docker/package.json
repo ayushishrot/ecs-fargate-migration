@@ -1,0 +1,11 @@
+{
+  "name": "orders",
+  "version": "1.0.0",
+  "description": "Sample orders service migrated from EC2 to ECS Fargate",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT",
+  "author": "Ayushi Shrotriya <ayushishrot@gmail.com>"
+}

@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
 Reference implementation for migrating an **EC2-hosted monolith** to **containers on
-AWS ECS Fargate** — with Terraform for everything: VPC, ALB + WAF, ECR, ECS service/task
+AWS ECS Fargate**  with Terraform for everything: VPC, ALB + WAF, ECR, ECS service/task
 definitions, autoscaling, and credentials in Secrets Manager. No servers to patch.
 
 > Based on a migration I led: moving EC2 monolith workloads to ECS Fargate to improve
@@ -16,12 +16,12 @@ definitions, autoscaling, and credentials in Secrets Manager. No servers to patc
 
 ```mermaid
 flowchart TB
-    subgraph before["Before — EC2 monolith"]
+    subgraph before["Before  EC2 monolith"]
         u1["Users"] --> elb1["Classic ELB"]
         elb1 --> ec2a["EC2 (app + cron)\nmanual patching"]
         ec2a --> db1[("RDS")]
     end
-    subgraph after["After — ECS Fargate"]
+    subgraph after["After  ECS Fargate"]
         u2["Users"] --> waf["WAF"]
         waf --> alb["ALB"]
         alb --> svc["ECS Service\n(Fargate tasks)"]
@@ -37,7 +37,7 @@ flowchart TB
 
 | Pain on EC2 | Fixed by Fargate |
 |-------------|------------------|
-| Manual OS patching / AMI bake | No host to patch — AWS manages it |
+| Manual OS patching / AMI bake | No host to patch  AWS manages it |
 | "Works on my instance" drift | Immutable image promoted across envs |
 | Capacity guesswork | Target-tracking autoscaling on CPU + ALB RPS |
 | Snowflake cron box | Scheduled ECS tasks (EventBridge) |

@@ -10,7 +10,7 @@ FROM node:20-alpine AS runtime
 ENV NODE_ENV=production
 WORKDIR /app
 
-# Run as an unprivileged user — no root in the container.
+# Run as an unprivileged user  no root in the container.
 RUN addgroup -S app && adduser -S app -G app
 COPY --from=deps /app/node_modules ./node_modules
 COPY server.js package.json ./
